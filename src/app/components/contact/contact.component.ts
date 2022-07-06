@@ -8,6 +8,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 })
 export class ContactComponent implements OnInit {
   contactForm!: FormGroup;
+  isSubmitted!: boolean;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -24,7 +25,9 @@ export class ContactComponent implements OnInit {
   submitContactForm(): void {
     if (!this.contactForm.valid) {
       console.error('Invalid form.');
+      return;
     }
+    this.isSubmitted = true;
   }
 
   get firstName(): AbstractControl {

@@ -1,36 +1,41 @@
 <div class="nyx-contact">
   <h2>Contact Us</h2>
 
-  <form [formGroup]="contactForm" class="nyx-contact__form">
-    <mat-form-field>
-      <mat-label>First Name</mat-label>
-      <input matInput type="text" formControlName="firstName"/>
-      <mat-error *ngIf="firstName.invalid">This field is required.</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Last Name</mat-label>
-      <input matInput type="text" formControlName="lastName"/>
-      <mat-error *ngIf="lastName.invalid">This field is required.</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input matInput type="email" formControlName="email"/>
-      <mat-error *ngIf="email.errors?.required">This field is required.</mat-error>
-      <mat-error *ngIf="email.errors?.email">Invalid email.</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Title/Summary</mat-label>
-      <input matInput type="text" formControlName="title"/>
-      <mat-error *ngIf="title.invalid">This field is required.</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Message</mat-label>
-      <textarea matInput formControlName="message" rows="5"></textarea>
-      <mat-error *ngIf="message.invalid">This field is required.</mat-error>
-    </mat-form-field>
-    <button mat-stroked-button
-      (click)="submitContactForm()"
-      class="nyx-contact__submit-btn"
-    >Submit</button>
-  </form>
+  <ng-container *ngIf="!isSubmitted; else thankYou">
+    <form [formGroup]="contactForm" class="nyx-contact__form">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" formControlName="firstName"/>
+        <mat-error *ngIf="firstName.invalid">This field is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlName="lastName"/>
+        <mat-error *ngIf="lastName.invalid">This field is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email"/>
+        <mat-error *ngIf="email.errors?.required">This field is required.</mat-error>
+        <mat-error *ngIf="email.errors?.email">Invalid email.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Title/Summary</mat-label>
+        <input matInput type="text" formControlName="title"/>
+        <mat-error *ngIf="title.invalid">This field is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message" rows="5"></textarea>
+        <mat-error *ngIf="message.invalid">This field is required.</mat-error>
+      </mat-form-field>
+      <button mat-stroked-button
+        (click)="submitContactForm()"
+        class="nyx-contact__submit-btn"
+      >Submit</button>
+    </form>
+  </ng-container>
+  <ng-template #thankYou>
+    <h4>Thank You!</h4>
+  </ng-template>
 </div>

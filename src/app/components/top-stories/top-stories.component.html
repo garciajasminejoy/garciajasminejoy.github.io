@@ -1,1 +1,24 @@
-<p>top-stories works!</p>
+<div class="nyx-top-stories">
+  <div class="nyx-top-stories__header">
+    <h2 class="nyx-top-stories__header-title">Top Stories</h2>
+    <form [formGroup]="categoryFilterForm">
+      <mat-form-field>
+        <mat-select placeholder="Category" formControlName="category">
+          <mat-option *ngFor="let option of categories | keyvalue" [value]="option.value">
+            {{ option.value | uppercase }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+  </div>
+  <div class="nyx-top-stories__results">
+    <ng-container *ngFor="let article of articles">
+      <mat-card *ngIf="article.item_type != 'EmbeddedInteractive'" class="nyx-top-stories__article" (click)="visitArticle(article)">
+        <mat-card-title>{{ article.title }}</mat-card-title>
+        <mat-card-subtitle>{{ article.abstract }}</mat-card-subtitle>
+        <i>{{ article.byline }}</i>
+      </mat-card>
+    </ng-container>
+  </div>
+</div>

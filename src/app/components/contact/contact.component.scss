@@ -1,0 +1,20 @@
+.nyx-contact {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    width: 30vw;
+  }
+
+  &__submit-btn {
+    margin-top: 1rem;
+    width: fit-content;
+    align-self: flex-end;
+  }
+}

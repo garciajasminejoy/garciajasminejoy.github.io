@@ -35,15 +35,15 @@ export class MovieReviewsComponent implements OnInit {
       searchKey: [''],
       orderType: [ORDER_TYPE.openingDate]
     });
+  }
 
-    this.filterForm.valueChanges
-      .subscribe(value => {
-        if (!value.searchKey) {
-          this.searchReviews('', true, ORDER_TYPE.openingDate, 5);
-          return;
-        }
-        this.searchReviews(value.searchKey, false, value.orderType);
-      });
+  searchMovieReviews(): void {
+    const { searchKey, orderType } = this.filterForm.value;
+    if (!searchKey) {
+      this.searchReviews('', true, ORDER_TYPE.openingDate, 5);
+      return;
+    }
+    this.searchReviews(searchKey, false, orderType);
   }
 
   searchReviews(
@@ -56,7 +56,6 @@ export class MovieReviewsComponent implements OnInit {
       .pipe(take(1))
       .subscribe(({results}) => {
         this.articles = max > 0 ? results.slice(0, max) : results;
-        console.log({art: this.articles})
       });
   }
 

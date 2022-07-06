@@ -6,6 +6,7 @@
   &__results {
     max-height: 50vh;
     overflow: auto;
+    margin-top: 2rem;
 
     @media screen and (max-width: 600px) {
       max-height: 70vh;

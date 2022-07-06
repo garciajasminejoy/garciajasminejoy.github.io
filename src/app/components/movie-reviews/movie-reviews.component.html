@@ -1,18 +1,19 @@
 <div class="nyx-movie-reviews">
   <div class="nyx-movie-reviews__header">
     <h2 class="nyx-movie-reviews__header-title">Movie Reviews</h2>
-    <form [formGroup]="filterForm" class="nyx-movie-reviews__form">
+    <form [formGroup]="filterForm" class="nyx-movie-reviews__form" (submit)="searchMovieReviews()">
       <mat-form-field class="nyx-movie-reviews__form-field">
         <mat-label>Critic Name</mat-label>
         <input type="text" matInput formControlName="searchKey" placeholder="Enter critic's name">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="nyx-movie-reviews__form-field">
         <mat-select placeholder="Order" formControlName="orderType">
           <mat-option *ngFor="let type of orderTypes" [value]="type.value">
             {{ type.displayText }}
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <button type="submit" mat-stroked-button>Search</button>
     </form>
   </div>
   <div class="nyx-movie-reviews__results">

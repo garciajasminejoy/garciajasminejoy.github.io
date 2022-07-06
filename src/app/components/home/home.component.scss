@@ -1,0 +1,54 @@
+.nyx-home {
+  &__options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__section {
+    height: 50vh;
+    overflow: visible;
+  }
+
+  &__section:not(:last-child) {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 1px;
+      display: block;
+      background-color: #000;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__header {
+    font-weight: 500;
+  }
+
+  &__link,
+  &__link:active {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.3em;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+
+    &:hover {
+      padding-bottom: .5rem;
+      border-bottom: 1px solid #000;
+      font-style: italic;
+    }
+  }
+
+  &__links {
+    margin-top: 2rem;
+  }
+}

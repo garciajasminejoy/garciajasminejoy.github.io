@@ -39,4 +39,23 @@ export class ArticlesService {
       }
     });
   }
+
+  getLatestBookReviews(list: string): Observable<any> {
+    return this.httpClient.get<StoriesResponse>(`${environment.api.nyxBaseUri}/books/v3/lists/current/${list}.json`, {
+      params: {
+        'api-key': environment.api.nyxKey
+      }
+    });
+  }
+
+  searchBookReviews(isbn: number, title: string, author: string): Observable<any> {
+    return this.httpClient.get<StoriesResponse>(`${environment.api.nyxBaseUri}/books/v3/reviews.json`, {
+      params: {
+        'api-key': environment.api.nyxKey,
+        isbn: isbn || 0,
+        title,
+        author
+      }
+    });
+  }
 }

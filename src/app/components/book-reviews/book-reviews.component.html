@@ -1,1 +1,36 @@
-<p>book-reviews works!</p>
+<div class="nyx-book-reviews">
+  <div class="nyx-book-reviews__header">
+    <h2 class="nyx-book-reviews__header-title">Book Reviews</h2>
+    <form class="nyx-book-reviews__form" [formGroup]="filterFormGroup" (submit)="search()">
+      <mat-error *ngIf="showFilterError">Please set at least one filter.</mat-error>
+      <mat-form-field class="nyx-book-reviews__form-field">
+        <mat-label>ISBN</mat-label>
+        <input type="text" matInput formControlName="isbn" placeholder="ISBN">
+      </mat-form-field>
+      <mat-form-field class="nyx-book-reviews__form-field">
+        <mat-label>Title</mat-label>
+        <input type="text" matInput formControlName="title" placeholder="Title">
+      </mat-form-field>
+      <mat-form-field class="nyx-book-reviews__form-field">
+        <mat-label>Author</mat-label>
+        <input type="text" matInput formControlName="author" placeholder="Author">
+      </mat-form-field>
+      <button type="submit" mat-stroked-button>Search</button>
+    </form>
+  </div>
+  <div class="nyx-book-reviews__results">
+    <ng-container *ngIf="articles?.length; else noData">
+      <ng-container *ngFor="let article of articles">
+        <mat-card class="nyx-book-reviews__article" (click)="visitArticle(article)">
+          <mat-card-title>{{ article.title }}</mat-card-title>
+          <mat-card-subtitle>{{ article.description }}</mat-card-subtitle>
+          <small>Author: {{ article.author }}</small>
+          <small *ngIf="article.reviewer">Reviewed by: {{ article.reviewer }}</small>
+        </mat-card>
+      </ng-container>
+    </ng-container>
+    <ng-template #noData>
+      <span>No Data Found</span>
+    </ng-template>
+  </div>
+</div>

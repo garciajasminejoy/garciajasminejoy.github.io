@@ -8,6 +8,7 @@ import { MovieReviewsComponent } from './components/movie-reviews/movie-reviews.
 import { BookReviewsComponent } from './components/book-reviews/book-reviews.component';
 import { TopStoriesComponent } from './components/top-stories/top-stories.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MainComponent,
     MovieReviewsComponent,
     BookReviewsComponent,
-    TopStoriesComponent
+    TopStoriesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Gulzar&display=swap');
+
 .nav {
+  display: flex;
+  align-items: center;
+
   &__logo {
     width: 5rem;
+    cursor: pointer;
+  }
+
+  &__link, &:active {
+    text-decoration: none;
+    color: #000;
+  }
+
+  &__app-name {
+    display: inline-block;
+    margin: 0;
+    font-family: 'Gulzar', serif;
+    font-size: 1.5em;
+    transform: translateY(5px);
+    cursor: pointer;
   }
 }

@@ -24,6 +24,10 @@
       background-color: #000;
       left: 50%;
       transform: translateX(-50%);
+
+      @media screen and (max-width: 600px) {
+        width: 80%;
+      }
     }
   }
 
@@ -50,5 +54,11 @@
 
   &__links {
     margin-top: 2rem;
+    text-align: center;
+
+    @media screen and (max-width: 600px) {
+      display: flex;
+      flex-direction: row;
+    }
   }
 }

@@ -2,7 +2,7 @@
   <div class="nyx-top-stories__header">
     <h2 class="nyx-top-stories__header-title">Top Stories</h2>
     <form [formGroup]="categoryFilterForm">
-      <mat-form-field>
+      <mat-form-field [floatLabel]="'never'">
         <mat-select placeholder="Category" formControlName="category">
           <mat-option *ngFor="let option of categories | keyvalue" [value]="option.value">
             {{ option.value | uppercase }}
@@ -17,7 +17,7 @@
       <mat-card *ngIf="article.item_type != 'EmbeddedInteractive'" class="nyx-top-stories__article" (click)="visitArticle(article)">
         <mat-card-title>{{ article.title }}</mat-card-title>
         <mat-card-subtitle>{{ article.abstract }}</mat-card-subtitle>
-        <i>{{ article.byline }}</i>
+        <small>{{ article.byline }}</small>
       </mat-card>
     </ng-container>
   </div>

@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    nyxBaseUri: 'https://api.nytimes.com/svc/topstories/v2/',
+    nyxKey: 'MJB8EGVx3qJ20WM4VFbOeDxLgpsczGb6'
+  }
 };
 
 /*
